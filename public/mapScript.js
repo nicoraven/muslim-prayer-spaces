@@ -23,10 +23,29 @@ function initMap() {
             // console.log(loc.name);
             let myLatlng = new google.maps.LatLng(loc.latitude, loc.longitude);
 
+            let contentString = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h4 id="firstHeading" class="firstHeading">'+loc.name+'</h4>'+
+            '<div id="bodyContent">'+
+            '<p>'+loc.address+'</p>'+
+            '<p>View '+loc.type+' details</p>'+
+            '<p>Get directions</p>'+
+            '</div>'+
+            '</div>';
+
+            let infowindow = new google.maps.InfoWindow({
+                content: contentString,
+                // maxWidth: 200
+            });
+
             let marker = new google.maps.Marker({
                 position: myLatlng,
                 map: map,
                 title: loc.name
+            });
+            marker.addListener('click', function() {
+                infowindow.open(map, marker);
             });
         })
 
