@@ -1,0 +1,30 @@
+{
+  "name": "muslim-prayer-spaces",
+  "version": "1.0.0",
+  "description": "A JS/Node/Express/PostgreSQL web app that helps SG muslims find the nearest space to perform their prayers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicoraven/muslim-prayer-spaces.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicoraven/muslim-prayer-spaces/issues"
+  },
+  "homepage": "https://github.com/nicoraven/muslim-prayer-spaces#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "express": "^4.16.4",
+    "express-react-views": "^0.11.0",
+    "method-override": "^3.0.0",
+    "nodemon": "^1.18.11",
+    "pg": "^7.9.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
