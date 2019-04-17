@@ -66,8 +66,9 @@ const server = app.listen(PORT, () => console.log('~~~ Tuning in to the waves of
 let onClose = function(){
 
   server.close(() => {
-    console.log('Process terminated')
+    console.log('Process terminated');
     allModels.pool.end( () => console.log('Shut down db connection pool'));
+    console.log('~Goodbye~');
   })
 };
 

@@ -12,6 +12,6 @@ module.exports = (app, allModels) => {
   // require the controller
   const controller = require('./controllers/mastercontroller')(allModels);
 
-  app.get('/', controller.testdefault);
+  app.get('/', controller.index);
 
 };

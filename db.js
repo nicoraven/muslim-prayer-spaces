@@ -62,11 +62,8 @@ pool.on('error', function (err) {
  */
 
 
-// const allPokemonModelsFunction = require('./models/users');
-const users = require('./models/users');
-
-// const pokemonModelsObject = allPokemonModelsFunction( pool );
-const userModelObject = users( pool );
+const index = require('./models/allLocations');
+const indexModelObject = index( pool );
 
 
 
@@ -96,6 +93,5 @@ module.exports = {
    * ADD APP MODELS HERE
    */
 
-  users: userModelObject,
-  // pokemon: pokemonModelsObject
+  index: indexModelObject,
 };

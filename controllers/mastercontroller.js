@@ -6,22 +6,11 @@ module.exports = (db) => {
    * ===========================================
    */
 
-  // let indexControllerCallback = (request, response) => {
-  //     db.pokemon.getAll((error, allPokemon) => {
-  //       response.render('pokemon/index', { allPokemon });
-  //     });
-  // };
-
-  let testdefault = (req, res) => {
-    // res.send('test ok!')
-    res.render('main/index');
-  }
-
-  let users = (req, res) => {
-    db.users.getAll((error, allUsers) => {
-      console.log(allUsers);
-      res.send('done');
-      // res.render('pokemon/index', { allUsers });
+  let indexPage = (req, res) => {
+    db.index.getAll((error, allLocations) => {
+        // console.log(allLocations);
+        // res.send('test ok!')
+        res.render('main/index', {list: allLocations});
     });
   }
 
@@ -31,9 +20,8 @@ module.exports = (db) => {
    * ===========================================
    */
   return {
-    users: users,
     // index: indexControllerCallback,
-    testdefault: testdefault,
+    index: indexPage,
   };
 
 }
