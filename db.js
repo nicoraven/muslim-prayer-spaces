@@ -66,7 +66,7 @@ const index = require('./models/allMosqueLocations');
 const indexModelObject = index( pool );
 
 const mosque = require('./models/oneMosqueDetails');
-const mosqueModelObject = mosque(pool);
+const mosqueModelObject = mosque( pool );
 
 /*
  * ===================================================

@@ -24,10 +24,11 @@ let mosquesListPage = (req, res) => {
 
 let mosquePage = (req, res) => {
     let mosqueId = parseInt( req.params.id );
-    console.log(mosqueId);
-    db.mosque.getOne((error, mosqueDetails) => {
-        res.send('test ok!');
-        // res.render(`mosques/${mosqueId}`, {mosque: mosqueDetails});
+    // console.log(mosqueId);
+    db.mosque.getOne(mosqueId, (error, mosqueDetails) => {
+        // console.log('mosqueDetails: ' + mosqueDetails);
+        // res.send('test ok!');
+        res.render('mosques/viewMosque', {mosque: mosqueDetails});
     });
 };
 
