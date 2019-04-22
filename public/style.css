@@ -31,3 +31,17 @@ a {
 .formButtons {
 	display: inline;
 }
+
+.inputBox {
+	height: 20px;
+	width: 250px;
+}
+
+textarea {
+	width: 250px;
+	height: 60px;
+}
+
+.submitButton {
+	display: block;
+}

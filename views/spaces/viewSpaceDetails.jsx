@@ -1,6 +1,19 @@
 var React = require("react");
 var NavButtons = require("./spaceNavButtons");
 
+class EditButton extends React.Component {
+    render() {
+        let id = this.props.id;
+        return (
+            <div className="editButton">
+                <form className="formButtons" action={"/spaces/"+id+"/edit"} method="get">
+                    <button className="backButtons">Edit</button>
+                </form>
+            </div>
+        )
+    }
+}
+
 class ViewSpaceDetails extends React.Component {
     render() {
         let space = this.props.space[0];
@@ -38,6 +51,7 @@ class ViewSpaceDetails extends React.Component {
                             <p>Directions: {space.directions}</p>
                             <p>Details: {space.details}</p>
                         </div>
+                        <EditButton id={space.id}/>
                         <NavButtons/>
                     </body>
                 </html>

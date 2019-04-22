@@ -8,7 +8,7 @@ class SpaceNavButtons extends React.Component {
                 <button className="backButtons">Back to Prayer Spaces</button>
             </form>
             <form className="formButtons" action="/" method="get">
-                <button className="backButtons">Get directions</button>
+                <button className="backButtons">Back to map</button>
             </form>
         </div>
     );

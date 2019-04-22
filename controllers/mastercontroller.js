@@ -24,11 +24,29 @@ let spacesListPage = (req, res) => {
 
 let spacePage = (req, res) => {
     let spaceId = parseInt( req.params.id );
-    // console.log(mosqueId);
     db.space.getOne(spaceId, (error, spaceDetails) => {
-        // console.log('mosqueDetails: ' + mosqueDetails);
         // res.send('test ok!');
         res.render('spaces/ViewSpaceDetails', {space: spaceDetails});
+    });
+};
+
+let viewEditPage = (req, res) => {
+    let spaceId = parseInt( req.params.id );
+    // console.log(mosqueId);
+    db.space.getOne(spaceId, (error, spaceDetails) => {
+        // res.send('test ok!');
+        res.render('spaces/EditSpaceDetails', {space: spaceDetails});
+    });
+};
+
+let editPage = (req, res) => {
+    let spaceId = parseInt( req.params.id );
+    let userInput = req.body;
+    // console.log(userInput);
+    db.editSpace.editOne(userInput, (error, editResult) => {
+        console.log(editResult);
+        // res.send('ok');
+        res.redirect(`${spaceId}`);
     });
 };
 
@@ -43,6 +61,8 @@ return {
     index: indexPage,
     spaces: spacesListPage,
     viewSpace: spacePage,
+    viewEditSpace: viewEditPage,
+    editSpace: editPage,
 };
 
 }

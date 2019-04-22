@@ -68,6 +68,10 @@ const indexModelObject = index( pool );
 const space = require('./models/oneSpaceDetails');
 const spaceModelObject = space( pool );
 
+const editSpace = require('./models/editSpace');
+const editModelObject = editSpace( pool );
+
+
 /*
  * ===================================================
  * ===================================================
@@ -96,4 +100,5 @@ module.exports = {
 
   index: indexModelObject,
   space: spaceModelObject,
+  editSpace: editModelObject,
 };
