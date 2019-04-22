@@ -12,7 +12,20 @@ class EditButton extends React.Component {
             </div>
         )
     }
-}
+};
+
+class DeleteButton extends React.Component {
+    render() {
+        let id = this.props.id;
+        return (
+            <div className="editButton">
+                <form className="formButtons" action={"/spaces/"+id+"/delete"} method="get">
+                    <button className="backButtons">Delete</button>
+                </form>
+            </div>
+        )
+    }
+};
 
 class ViewSpaceDetails extends React.Component {
     render() {
@@ -52,6 +65,7 @@ class ViewSpaceDetails extends React.Component {
                             <p>Details: {space.details}</p>
                         </div>
                         <EditButton id={space.id}/>
+                        <DeleteButton id={space.id}/>
                         <NavButtons/>
                     </body>
                 </html>

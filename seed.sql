@@ -32,6 +32,15 @@ CREATE TABLE changelog(
 	modifiedBy TEXT
 );
 
+DROP TABLE deleterequest;
+
+CREATE TABLE deleterequest(
+	id SERIAL PRIMARY KEY,
+	name TEXT,
+	spaceId INT,
+	reason TEXT
+);
+
 DROP TABLE users;
 
 CREATE TABLE users(

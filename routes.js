@@ -16,9 +16,13 @@ module.exports = (app, allModels) => {
 
   app.get('/spaces/:id/edit', controller.viewEditSpace);
 
-  app.get('/spaces/:id', controller.viewSpace);
+  app.get('/spaces/:id/delete', controller.viewDeleteSpace);
 
-  app.post('/spaces/:id', controller.editSpace);
+  app.delete('/spaces/:id', controller.deleteSpace);
+
+  app.put('/spaces/:id', controller.editSpace);
+
+  app.get('/spaces/:id', controller.viewSpace);
 
   app.get('/spaces', controller.spaces);
 

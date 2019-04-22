@@ -71,6 +71,9 @@ const spaceModelObject = space( pool );
 const editSpace = require('./models/editSpace');
 const editModelObject = editSpace( pool );
 
+const deleteSpace = require('./models/deleteSpace');
+const deleteModelObject = deleteSpace( pool );
+
 
 /*
  * ===================================================
@@ -101,4 +104,5 @@ module.exports = {
   index: indexModelObject,
   space: spaceModelObject,
   editSpace: editModelObject,
+  deleteSpace: deleteModelObject,
 };

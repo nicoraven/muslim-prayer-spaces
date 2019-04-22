@@ -45,3 +45,13 @@ textarea {
 .submitButton {
 	display: block;
 }
+
+.editButton {
+	display: inline;
+/*	border: solid 1px red;
+	margin: 10px;*/
+}
+
+.backButtons {
+	display: inline;
+}

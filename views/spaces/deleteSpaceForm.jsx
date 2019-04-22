@@ -11,7 +11,7 @@ class BackButton extends React.Component {
     }
 }
 
-class EditSpaceDetails extends React.Component {
+class DeleteSpaceForm  extends React.Component {
     render() {
         let space = this.props.space[0];
         // console.log(space);
@@ -22,17 +22,11 @@ class EditSpaceDetails extends React.Component {
                     <link rel="stylesheet" type="text/css" href="/style.css" />
                 </head>
                 <body>
-                    <h1 className="spaceName">Edit {space.name}'s Musollah</h1>
+                    <h1 className="spaceName">Delete {space.name}'s musollah?</h1>
                     <div className="editForm">
-                        <form className="formButtons" action={"/spaces/"+id} method="POST">
-                            <p>Name: </p>
-                            <input type="text" name="name" className="inputBox" defaultValue={space.name}/>
-                            <p>Address: </p>
-                            <textarea rows="1" cols="20" name="address" defaultValue={space.address}/>
-                            <p>Directions: </p>
-                            <textarea rows="1" cols="20" name="directions" defaultValue={space.directions}/>
-                            <p>Details: </p>
-                            <textarea rows="1" cols="20" name="details" defaultValue={space.details}/>
+                        <form className="formButtons" action={"/spaces/"+id+"?_method=DELETE"} method="POST">
+                            <p>Please provide the reason for deletion:</p>
+                            <textarea rows="1" cols="20" name="reason" />
                             <input type="hidden" name="id" value={space.id}/>
                             <input type="hidden" name="modifiedBy" value="user"/>
                             <input type="submit" className="submitButton" value="Submit"/>
@@ -45,4 +39,4 @@ class EditSpaceDetails extends React.Component {
     }
 }
 
-module.exports = EditSpaceDetails;
+module.exports = DeleteSpaceForm;

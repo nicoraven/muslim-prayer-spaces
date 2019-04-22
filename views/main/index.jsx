@@ -11,7 +11,7 @@ class Home extends React.Component {
       <html>
         <head>
             <link rel="stylesheet" type="text/css" href="style.css" />
-            <script type="text/javascript" src="mapScript.js" />
+            <script type="text/javascript" src="/mapScript.js" />
             <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRGDK5TfXG2N0IM2eejYs61iXm6BKHbMw&libraries=places,geometry&callback=initMap" />
         </head>
         <body>
