@@ -14,8 +14,8 @@ module.exports = (app, allModels) => {
 
   app.get('/', controller.index);
 
-  app.get('/mosques/:id', controller.viewMosque)
+  app.get('/spaces/:id', controller.viewSpace)
 
-  app.get('/mosques', controller.mosques);
+  app.get('/spaces', controller.spaces);
 
 };

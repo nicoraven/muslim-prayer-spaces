@@ -7,28 +7,28 @@ module.exports = (db) => {
 */
 
 let indexPage = (req, res) => {
-    db.index.getAll((error, allLocations) => {
-        // console.log(allLocations);
-        // res.redirect('/')
-        res.render('main/index', {list: allLocations});
-    });
+    // db.index.getAll((error, allLocations) => {
+    //     // console.log(allLocations);
+    //     res.render('main/index', {list: allLocations});
+    // });
+    res.redirect('/spaces')
 };
 
-let mosquesListPage = (req, res) => {
-    db.index.getAll((error, allMosqueLocations) => {
+let spacesListPage = (req, res) => {
+    db.index.getAll((error, allSpaceLocations) => {
         // console.log(allLocations);
         // res.send('test ok!')
-        res.render('mosques/mosques', {list: allMosqueLocations});
+        res.render('spaces/allSpaces', {list: allSpaceLocations});
     });
 };
 
-let mosquePage = (req, res) => {
-    let mosqueId = parseInt( req.params.id );
+let spacePage = (req, res) => {
+    let spaceId = parseInt( req.params.id );
     // console.log(mosqueId);
-    db.mosque.getOne(mosqueId, (error, mosqueDetails) => {
+    db.space.getOne(spaceId, (error, spaceDetails) => {
         // console.log('mosqueDetails: ' + mosqueDetails);
         // res.send('test ok!');
-        res.render('mosques/viewMosque', {mosque: mosqueDetails});
+        res.render('spaces/ViewSpaceDetails', {space: spaceDetails});
     });
 };
 
@@ -41,8 +41,8 @@ let mosquePage = (req, res) => {
 return {
     // index: indexControllerCallback,
     index: indexPage,
-    mosques: mosquesListPage,
-    viewMosque: mosquePage,
+    spaces: spacesListPage,
+    viewSpace: spacePage,
 };
 
 }

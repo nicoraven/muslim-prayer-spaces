@@ -6,10 +6,10 @@
 module.exports = (dbPoolInstance) => {
 
   // `dbPoolInstance` is accessible within this function scope
-
+z
   let getAll = (callback) => {
 
-    let query = 'SELECT * FROM mosque';
+    let query = "SELECT * FROM space WHERE type = 'mosque';";
 
     dbPoolInstance.query(query, (error, queryResult) => {
       if( error ){

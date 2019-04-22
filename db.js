@@ -62,11 +62,11 @@ pool.on('error', function (err) {
  */
 
 
-const index = require('./models/allMosqueLocations');
+const index = require('./models/allLocations');
 const indexModelObject = index( pool );
 
-const mosque = require('./models/oneMosqueDetails');
-const mosqueModelObject = mosque( pool );
+const space = require('./models/oneSpaceDetails');
+const spaceModelObject = space( pool );
 
 /*
  * ===================================================
@@ -95,5 +95,5 @@ module.exports = {
    */
 
   index: indexModelObject,
-  mosque: mosqueModelObject,
+  space: spaceModelObject,
 };

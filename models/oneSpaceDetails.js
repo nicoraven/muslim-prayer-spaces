@@ -1,9 +1,9 @@
 module.exports = (dbPoolInstance) => {
     // dbPoolInstance is accessible within this function scope
 
-    let getOne = (mosqueId, callback) => {
+    let getOne = (spaceId, callback) => {
         // console.log('getOne mosqueId: '+mosqueId);
-        let query = `select * from mosque where id=${mosqueId}`;
+        let query = `select * from space where id=${spaceId}`;
         // console.log(query);
 
         dbPoolInstance.query(query,(error, queryResult) => {
