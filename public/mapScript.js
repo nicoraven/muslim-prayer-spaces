@@ -12,15 +12,16 @@ function initMap() {
     map = new google.maps.Map(
         document.getElementById('map'), {zoom: 11, center: singapore}
     );
-    // Create the searchBox and link it to the input.
-    let input = document.getElementById('userInput');
-    searchBox = new google.maps.places.SearchBox(input);
     // run next functions
     loadMosqueMarkers();
     loadSearchBox();
 };
 
 function loadSearchBox() {
+    // Create the search box and link it to the UI element.
+    let input = document.getElementById('userInput');
+    searchBox = new google.maps.places.SearchBox(input);
+    map.controls[google.maps.ControlPosition.TOP_CENTER].push(input);
     // Bias the SearchBox results towards current map's viewport.
     map.addListener('bounds_changed', function() {
       searchBox.setBounds(map.getBounds());

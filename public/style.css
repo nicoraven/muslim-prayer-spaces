@@ -1,14 +1,112 @@
+/*
+  ==================
+  ==================
+  Main body
+  ==================
+  ==================
+*/
+
+div {
+	/*border: solid 1px red;*/
+}
+
+html {
+	min-height: 100%;
+	position: relative;
+}
+
+body {
+	margin: 0;
+	height: 100%;
+}
+
+/*
+  ==================
+  ==================
+  Nav bar
+  ==================
+  ==================
+*/
+
+.header {
+	background-color: #008080;
+	padding: 14px 14px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.siteTitle {
+	margin: 0px;
+	font-size: 28px;
+	color: #F6FFFF;
+}
+
+.right {
+	list-style: none;
+	margin: 0 0 0 40px;
+	padding: 0;
+	display: flex;
+	align-items: center;
+}
+
+.right>li {
+	margin-left: 30px;
+}
+
+a>h3 {
+	margin: 0;
+	color: #F6FFFF;
+}
+
+/*
+  ==================
+  ==================
+  Map elements
+  ==================
+  ==================
+*/
+
 .pageWrapper {
 	font-family: sans-serif;
 }
 
+.mapContainer {
+	display: relative;
+}
+
 #map {
-  height: 500px;  /* The height is 400 pixels */
-  width: 100%;  /* The width is the width of the web page */
- }
+	/*height: 100vh;
+	width: 100%;*/
+	position:absolute;
+	top: 60px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+	/*z-index:-1;*/
+}
+
+#userInput {
+	background-color: #fff;
+	font-family: Roboto, sans-serif;
+	font-size: 18px;
+	font-weight: 400;
+	margin: 12px;
+	padding: 0 11px 0 13px;
+	text-overflow: ellipsis;
+	height: 36px;
+	width: 300px;
+	z-index: 0;
+	position: absolute;
+	top: 0px;
+	left: 200px;
+}
 
 ul {
 	list-style: none;
+	margin: 0;
 }
 
 a {
@@ -16,21 +114,13 @@ a {
 	text-decoration: none;
 }
 
-/*.searchBox {
-	display: flex;
-	justify-content: center;
-}*/
-
-#userInput {
-	width: 90%;
-	height: 30px;
-	margin: 20px auto;
-	font-size: 18px;
-}
-
-.formButtons {
-	display: inline;
-}
+/*
+  ==================
+  ==================
+  Input fields for form pages
+  =================
+  =================
+*/
 
 .inputBox {
 	height: 20px;
@@ -42,14 +132,24 @@ textarea {
 	height: 60px;
 }
 
+/*
+  =======================
+  =======================
+  Buttons for view/form pages
+  =======================
+  =======================
+*/
+
+.formButtons {
+	display: inline;
+}
+
 .submitButton {
 	display: block;
 }
 
 .editButton {
 	display: inline;
-/*	border: solid 1px red;
-	margin: 10px;*/
 }
 
 .backButtons {
