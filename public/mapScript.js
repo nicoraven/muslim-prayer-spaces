@@ -3,9 +3,9 @@ var map;
 var searchBox;
 var searchMarkers = [];
 var mosqueMarkers = [];
-var nearestMosqueMarkers = [];
-var mosqueMarkerToggle = false;
-var nearestMosque = "";
+var musollahMarkers = [];
+var markerWindowToggle = false;
+var nearestMosque = [];
 
 function initMap() {
     // initialise map
@@ -41,12 +41,12 @@ function displaySearchResult() {
         marker.setMap(null);
     });
     searchMarkers = [];
-    nearestMosqueMarkers = [];
-    nearestMosque = "";
+    nearestMosque = [];
 
     // For each place, get the icon, name and location.
     var bounds = new google.maps.LatLngBounds();
     places.forEach(function(place) {
+        // console.log(place);
         if (!place.geometry) {
             console.log("Returned place contains no geometry");
             return;
@@ -59,12 +59,12 @@ function displaySearchResult() {
             scaledSize: new google.maps.Size(25, 25)
         };
         // Create a marker for each place.
-        searchMarkers.push(new google.maps.Marker({
+        let searchMarker = new google.maps.Marker({
             map: map,
             icon: icon,
             title: place.name,
             position: place.geometry.location,
-        }));
+        });
         if (place.geometry.viewport) {
             // Only geocodes have viewport.
             bounds.union(place.geometry.viewport);
@@ -77,14 +77,18 @@ function displaySearchResult() {
         '</div>'+
         '<h4 id="firstHeading" class="firstHeading">'+place.name+'</h4>'+
         '<div id="bodyContent">'+
-        '<p>'+place.address+'</p>'+
-        '<p>Nearest mosque:</p>'+
+        '<p>'+place.formatted_address+'</p>'+
+        '<p>Nearest mosque: <a href="/spaces/'+nearestMosque.id+'">'+nearestMosque.title+'</a>, '+nearestMosque.distance+'km</p>'+
         '</div>'+
         '</div>';
         let infowindow = new google.maps.InfoWindow({
             content: contentString,
             // maxWidth: 200
         });
+        searchMarker.addListener('click', function() {
+            infowindow.open(map, searchMarker);
+        });
+        searchMarkers.push(searchMarker);
     });
     map.fitBounds(bounds);
 };
@@ -101,10 +105,10 @@ function loadMosqueMarkers() {
         let contentString = '<div id="content">'+
         '<div id="siteNotice">'+
         '</div>'+
-        '<h4 id="firstHeading" class="firstHeading">'+loc.name+'</h4>'+
+        '<h4 id="firstHeading" class="firstHeading">'+loc.name+' '+loc.type+'</h4>'+
         '<div id="bodyContent">'+
         '<p>'+loc.address+'</p>'+
-        '<p><a href="/spaces/'+loc.id+'">View '+loc.type+' details</p>'+
+        '<p><a href="/spaces/'+loc.id+'">View '+loc.type+' details</a></p>'+
         '<p>Get directions</p>'+
         '</div>'+
         '</div>';
@@ -113,51 +117,63 @@ function loadMosqueMarkers() {
             // maxWidth: 200
         });
         // set the marker onto the map
-        let mosqueMarker = new google.maps.Marker({
+        let spaceMarker = new google.maps.Marker({
             position: locLatlng,
             map: map,
             title: loc.name,
             lat: loc.latitude,
-            lng: loc.longitude
+            lng: loc.longitude,
+            spaceId: loc.id
         });
-        // console.log(mosqueMarker.title +': '+ mosqueMarker);
-        mosqueMarkers.push(mosqueMarker);
+        // console.log(spaceMarker.spaceId);
+        // console.log(spaceMarker.title +': '+ spaceMarker);
+        if (loc.type === 'mosque') {
+            mosqueMarkers.push(spaceMarker);
+        } else {
+            musollahMarkers.push(spaceMarker);
+        }
         // onclick open infowindow
-        mosqueMarker.addListener('click', function() {
-            mosqueMarkerToggle = !mosqueMarkerToggle;
-            toggleMosqueMarker(infowindow, mosqueMarker);
+        spaceMarker.addListener('click', function() {
+            markerWindowToggle = !markerWindowToggle;
+            toggleMarkerWindow(infowindow, spaceMarker);
         });
     })
 };
 
 // toggles mosqueMarker open and close on click
-function toggleMosqueMarker(infowindow, mosqueMarker) {
-    if (mosqueMarkerToggle) {
-        infowindow.open(map, mosqueMarker);
+function toggleMarkerWindow(infowindow, spaceMarker) {
+    if (markerWindowToggle) {
+        infowindow.open(map, spaceMarker);
     } else {
-        infowindow.close(map, mosqueMarker);
+        infowindow.close(map, spaceMarker);
     }
 };
 
 // finds nearest mosqueMarker
 function findNearestMosque(searchName, searchLocation){
-    // calculate distance for each mosque
-    // for(let mosque of mosqueMarkers){
-    //     let mosquePosition = mosque.position;
-    //     let distance = google.maps.geometry.spherical.computeDistanceBetween(searchLocation, mosquePosition);
-    //     console.log('distance between '+searchName+' and '+mosque.title+': '+distance+' meters');
-    // };
+    nearestMosque = {
+        'title': mosqueMarkers[0].title,
+        'position': mosqueMarkers[0].position,
+        'distance': mToKm(google.maps.geometry.spherical.computeDistanceBetween(searchLocation, mosqueMarkers[0].position)),
+        'id': mosqueMarkers[0].spaceId
+    }
     for (let i = 0; i < mosqueMarkers.length; i++) {
         let mosquePosition = mosqueMarkers[i].position;
         let distance = google.maps.geometry.spherical.computeDistanceBetween(searchLocation, mosquePosition);
-        console.log('distance between '+searchName+' and '+mosqueMarkers[i].title+': '+distance+' meters');
+        // console.log('distance between '+searchName+' and '+mosqueMarkers[i].title+': '+distance+' meters');
+        if (distance < nearestMosque.distance) {
+            nearestMosque = {
+                'title': mosqueMarkers[i].title,
+                'position': mosqueMarkers[i].position,
+                'distance': mToKm(distance),
+                'id': mosqueMarkers[i].spaceId
+            }
+        };
     };
+    console.log(nearestMosque.title +', '+ nearestMosque.distance+', '+ nearestMosque.id);
 };
 
-/*
-let mosquePosition = mosqueMarkers[0].position;
-console.log('searchlocation: '+searchLocation);
-console.log('mosque location: '+mosquePosition);
-var distance = google.maps.geometry.spherical.computeDistanceBetween(searchLocation, mosquePosition);
-console.log('distance between searchLocation and '+mosqueMarkers[0].title+': '+distance+' meters');
-*/
+// converts meter to kilometer, rounded to 2 decimal places
+function mToKm(valNum) {
+    return (valNum/1000).toFixed(2);
+}
