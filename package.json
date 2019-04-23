@@ -4,7 +4,8 @@
   "description": "A JS/Node/Express/PostgreSQL web app that helps SG muslims find the nearest space to perform their prayers",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -27,5 +28,8 @@
     "pg": "^7.9.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
+  },
+  "engines" : {
+    "node" : "^11.12.0"
   }
 }
