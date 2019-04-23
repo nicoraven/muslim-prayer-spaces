@@ -17,13 +17,11 @@ class Home extends React.Component {
             <title>SG Prayer Space Finder</title>
         </head>
         <body>
-        <div className="pageWrapper">
             <Header/>
             <div className="mapContainer">
                 <div id="map"></div>
                 <input type="text" id="userInput" name="mapsearch" placeholder="Enter your current location here" />
             </div>
-        </div>
         <Marker list={list} />
         </body>
       </html>

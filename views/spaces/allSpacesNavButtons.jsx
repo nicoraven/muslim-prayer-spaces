@@ -8,7 +8,7 @@ class AllSpacesNavButtons extends React.Component {
             <form className="formButtons" action={"/spaces/"+space.id} method="get">
                 <button className="detailButton">View details</button>
             </form>
-            <form className="formButtons" action={"/spaces/"+space.id} method="get">
+            <form className="formButtons" action={"/"} method="get">
                 <button className="viewMapButton">View in map</button>
             </form>
         </div>

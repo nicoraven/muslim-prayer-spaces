@@ -1,6 +1,8 @@
 var React = require("react");
 var NavButtons = require("./spaceNavButtons");
 
+var Header = require('../main/header');
+
 class EditButton extends React.Component {
     render() {
         let id = this.props.id;
@@ -39,6 +41,7 @@ class ViewSpaceDetails extends React.Component {
                         <link rel="stylesheet" type="text/css" href="/style.css" />
                     </head>
                     <body>
+                        <Header/>
                         <h1 className="spaceName">Masjid {space.name}</h1>
                         <div className="spaceDetails">
                             <p>Address: {space.address}</p>
@@ -58,6 +61,7 @@ class ViewSpaceDetails extends React.Component {
                         <link rel="stylesheet" type="text/css" href="/style.css" />
                     </head>
                     <body>
+                    <Header/>
                         <h1 className="spaceName">{space.name}</h1>
                         <div className="spaceDetails">
                             <p>Address: {space.address}</p>
