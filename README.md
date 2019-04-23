@@ -2,7 +2,7 @@
 A JS/Node/Express/PostgreSQL web app that helps SG muslims find the nearest space to perform their prayers
 
 
-##Project Post Mortem
+## Project Post Mortem
 
 #### Approach and Process
 
@@ -17,7 +17,6 @@ A JS/Node/Express/PostgreSQL web app that helps SG muslims find the nearest spac
 
 	Making commits regularly. There were times when I had to roll back to a previous commit because I had made too many changes that ended up breaking the code.
 
---
 
 #### Code and Code Design
 
@@ -84,10 +83,6 @@ I chopped up my react components into smaller components which made it faster to
 	<Header/>
 	<div class="pageWrapper">
 ```
-
-  For each, please include code examples.
-  1. Code snippet up to 20 lines.
-  2. Code design documents or architecture drawings / diagrams.
 
 #### WDI Unit 2 Post Mortem
 1. What habits did I use during this unit that helped me?
