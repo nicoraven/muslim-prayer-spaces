@@ -150,6 +150,35 @@ td {
 	border: solid 1px black;
 }
 
+.spaceName {
+	margin: 10px;
+}
+
+.spaceDetails {
+	margin-top: 20px;
+	display: flex;
+	flex-direction: row;
+	/*border: solid 1px red;*/
+}
+
+.infoBar{
+	width: 400px;
+	/*border: solid 1px blue;*/
+}
+
+.miniMap {
+	width: 400px;
+	height: 300px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: solid 1px #008080;
+}
+
+.infoKey {
+
+}
+
 /*
   ==================
   ==================

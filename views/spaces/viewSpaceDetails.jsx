@@ -42,14 +42,22 @@ class ViewSpaceDetails extends React.Component {
                     </head>
                     <body>
                         <Header/>
-                        <h1 className="spaceName">Masjid {space.name}</h1>
-                        <div className="spaceDetails">
-                            <p>Address: {space.address}</p>
-                            <p>Telephone: {space.telephone}</p>
-                            <p>Email: {space.email}</p>
-                            <p>Website: <a href={space.website}>{space.website}</a></p>
+                        <div className="pageWrapper">
+                            <h1 className="spaceName">Masjid {space.name}</h1>
+                            <div className="spaceDetails">
+                                <div className="infoBar">
+                                    <p>Address: {space.address}</p>
+                                    <p>Telephone: {space.telephone}</p>
+                                    <p>Email: {space.email}</p>
+                                    <p>Website: <a href={space.website}>{space.website}</a></p>
+                                </div>
+                                <div className="miniMap">
+                                    Minimap of space's location
+                                </div>
+                            </div>
+                            <NavButtons/>
                         </div>
-                        <NavButtons/>
+
                     </body>
                 </html>
             );
@@ -62,15 +70,23 @@ class ViewSpaceDetails extends React.Component {
                     </head>
                     <body>
                     <Header/>
+                    <div className="pageWrapper">
                         <h1 className="spaceName">{space.name}</h1>
                         <div className="spaceDetails">
-                            <p>Address: {space.address}</p>
-                            <p>Directions: {space.directions}</p>
-                            <p>Details: {space.details}</p>
+                                <div className="infoBar">
+                                    <p>Address: {space.address}</p>
+                                    <p>Directions: {space.directions}</p>
+                                    <p>Details: {space.details}</p>
+                                </div>
+                                <div className="miniMap">
+                                    Minimap of space's location
+                                </div>
                         </div>
                         <EditButton id={space.id}/>
                         <DeleteButton id={space.id}/>
                         <NavButtons/>
+                    </div>
+
                     </body>
                 </html>
             );
