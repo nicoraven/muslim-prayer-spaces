@@ -2,6 +2,7 @@ var React = require("react");
 var NavButtons = require("./spaceNavButtons");
 
 var Header = require('../main/header');
+var Marker = require('../main/marker');
 
 class EditButton extends React.Component {
     render() {
@@ -32,6 +33,7 @@ class DeleteButton extends React.Component {
 class ViewSpaceDetails extends React.Component {
     render() {
         let space = this.props.space[0];
+        console.log(space);
         // console.log(space.name);
 
         if (space.type === "mosque") {
@@ -39,6 +41,8 @@ class ViewSpaceDetails extends React.Component {
                 <html>
                     <head>
                         <link rel="stylesheet" type="text/css" href="/style.css" />
+                        <script type="text/javascript" src="/miniMapScript.js" />
+                        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRGDK5TfXG2N0IM2eejYs61iXm6BKHbMw&libraries=places,geometry&callback=initMap" />
                     </head>
                     <body>
                         <Header/>
@@ -51,13 +55,12 @@ class ViewSpaceDetails extends React.Component {
                                     <p>Email: {space.email}</p>
                                     <p>Website: <a href={space.website}>{space.website}</a></p>
                                 </div>
-                                <div className="miniMap">
-                                    Minimap of space's location
+                                <div id="miniMap" className="miniMap">
                                 </div>
                             </div>
                             <NavButtons/>
                         </div>
-
+                        <Marker list={space} />
                     </body>
                 </html>
             );
@@ -67,6 +70,8 @@ class ViewSpaceDetails extends React.Component {
                 <html>
                     <head>
                         <link rel="stylesheet" type="text/css" href="/style.css" />
+                        <script type="text/javascript" src="/miniMapScript.js" />
+                        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRGDK5TfXG2N0IM2eejYs61iXm6BKHbMw&libraries=places,geometry&callback=initMap" />
                     </head>
                     <body>
                     <Header/>
@@ -78,15 +83,14 @@ class ViewSpaceDetails extends React.Component {
                                     <p>Directions: {space.directions}</p>
                                     <p>Details: {space.details}</p>
                                 </div>
-                                <div className="miniMap">
-                                    Minimap of space's location
+                                <div id="miniMap" className="miniMap">
                                 </div>
                         </div>
                         <EditButton id={space.id}/>
                         <DeleteButton id={space.id}/>
                         <NavButtons/>
                     </div>
-
+                    <Marker list={space} />
                     </body>
                 </html>
             );
