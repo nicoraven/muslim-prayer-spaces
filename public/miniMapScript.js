@@ -10,7 +10,7 @@ function initMap() {
     };
     loc.lat = space.latitude;
     loc.lng = space.longitude;
-    console.log("loc", loc);
+    // console.log("loc", loc);
 
     // initialise map, centered at space
     var map = new google.maps.Map(
