@@ -41,6 +41,7 @@ class ViewSpaceDetails extends React.Component {
                 <html>
                     <head>
                         <link rel="stylesheet" type="text/css" href="/style.css" />
+                        <script type="text/javascript" src="/tbd.js" />
                         <script type="text/javascript" src="/miniMapScript.js" />
                         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRGDK5TfXG2N0IM2eejYs61iXm6BKHbMw&libraries=places,geometry&callback=initMap" />
                     </head>
@@ -82,12 +83,14 @@ class ViewSpaceDetails extends React.Component {
                                     <p>Address: {space.address}</p>
                                     <p>Directions: {space.directions}</p>
                                     <p>Details: {space.details}</p>
+                                    <div className="spaceEditButtons">
+                            <EditButton id={space.id}/>
+                            <DeleteButton id={space.id}/>
+                        </div>
                                 </div>
                                 <div id="miniMap" className="miniMap">
                                 </div>
                         </div>
-                        <EditButton id={space.id}/>
-                        <DeleteButton id={space.id}/>
                         <NavButtons/>
                     </div>
                     <Marker list={space} />

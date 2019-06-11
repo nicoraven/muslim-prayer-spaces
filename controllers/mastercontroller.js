@@ -63,11 +63,12 @@ let deletePage = (req, res) => {
     let spaceId = parseInt( req.params.id );
     let userInput = req.body;
     // console.log('req.body: '+userInput);
-    db.deleteSpace.deleteOne(userInput, (error, editResult) => {
-        console.log(editResult);
-        // res.send('ok');
-        res.redirect('/spaces');
-    });
+    // db.deleteSpace.deleteOne(userInput, (error, editResult) => {
+    //     console.log(editResult);
+    //     // res.send('ok');
+    //     res.redirect('/spaces');
+    // });
+    res.redirect('/spaces');
 };
 
 /**

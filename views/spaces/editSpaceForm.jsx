@@ -1,5 +1,7 @@
 var React = require("react");
 
+var Header = require('../main/header');
+
 class BackButton extends React.Component {
     render() {
         let id = this.props.id;
@@ -20,25 +22,39 @@ class EditSpaceForm  extends React.Component {
             <html>
                 <head>
                     <link rel="stylesheet" type="text/css" href="/style.css" />
+                    <script type="text/javascript" src="/tbd.js" />
                 </head>
                 <body>
+                <Header/>
+                <div className="pageWrapper">
                     <h1 className="spaceName">Edit {space.name}'s Musollah</h1>
                     <div className="editForm">
-                        <form className="formButtons" action={"/spaces/"+id+"?_method=PUT"} method="POST">
-                            <p>Name: </p>
-                            <input type="text" name="name" className="inputBox" defaultValue={space.name}/>
-                            <p>Address: </p>
-                            <textarea rows="1" cols="20" name="address" defaultValue={space.address}/>
-                            <p>Directions: </p>
-                            <textarea rows="1" cols="20" name="directions" defaultValue={space.directions}/>
-                            <p>Details: </p>
-                            <textarea rows="1" cols="20" name="details" defaultValue={space.details}/>
+                        <form action={"/spaces/"+id+"?_method=PUT"} method="POST">
+                            <div className="inputContainer">
+                                <p>Name: </p>
+                                <textarea type="text" name="name" className="inputBox" defaultValue={space.name}/>
+                            </div>
+                            <div className="inputContainer">
+                                <p>Address: </p>
+                                <textarea rows="1" cols="20" name="address" defaultValue={space.address}/>
+                            </div>
+                            <div className="inputContainer">
+                                <p>Directions: </p>
+                                <textarea rows="1" cols="20" name="directions" defaultValue={space.directions}/>
+                            </div>
+                            <div className="inputContainer">
+                                <p>Details: </p>
+                                <textarea rows="1" cols="20" name="details" defaultValue={space.details}/>
+                            </div>
                             <input type="hidden" name="id" value={space.id}/>
                             <input type="hidden" name="modifiedBy" value="user"/>
-                            <input type="submit" className="submitButton" value="Submit"/>
+                            <div className="formButtons" >
+                                <input type="submit" className="backButtons" value="Submit"/>
+                                <BackButton id={id}/>
+                            </div>
                         </form>
                     </div>
-                    <BackButton id={id}/>
+                </div>
                 </body>
             </html>
         );

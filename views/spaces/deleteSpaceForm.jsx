@@ -1,5 +1,7 @@
 var React = require("react");
 
+var Header = require('../main/header');
+
 class BackButton extends React.Component {
     render() {
         let id = this.props.id;
@@ -20,19 +22,23 @@ class DeleteSpaceForm  extends React.Component {
             <html>
                 <head>
                     <link rel="stylesheet" type="text/css" href="/style.css" />
+                    <script type="text/javascript" src="/tbd.js" />
                 </head>
                 <body>
+                <Header/>
+                <div className="pageWrapper">
                     <h1 className="spaceName">Delete {space.name}'s musollah?</h1>
-                    <div className="editForm">
-                        <form className="formButtons" action={"/spaces/"+id+"?_method=DELETE"} method="POST">
-                            <p>Please provide the reason for deletion:</p>
-                            <textarea rows="1" cols="20" name="reason" />
-                            <input type="hidden" name="id" value={space.id}/>
-                            <input type="hidden" name="modifiedBy" value="user"/>
-                            <input type="submit" className="submitButton" value="Submit"/>
-                        </form>
-                    </div>
-                    <BackButton id={id}/>
+                    <form className="deleteForm" action={"/spaces/"+id+"?_method=DELETE"} method="POST">
+                        <p>Please provide the reason for deletion:</p>
+                        <textarea rows="1" cols="20" name="reason" />
+                        <input type="hidden" name="id" value={space.id}/>
+                        <input type="hidden" name="modifiedBy" value="user"/>
+                        <div className="formButtons" >
+                            <input type="submit" className="backButtons" value="Submit"/>
+                            <BackButton id={id}/>
+                        </div>
+                    </form>
+                </div>
                 </body>
             </html>
         );

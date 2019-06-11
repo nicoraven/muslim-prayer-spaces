@@ -13,7 +13,9 @@ class SpacesList extends React.Component {
                     <td>{space.name}</td>
                     <td>{space.address}</td>
                     <td>{space.type}</td>
-                    <td><AllSpacesNavButtons space={space}/></td>
+                    <td><form action={"/spaces/"+space.id} method="get">
+                <button className="detailButton">View details</button>
+            </form></td>
                 </tr>
             )
         });
@@ -35,6 +37,7 @@ class Spaces extends React.Component {
         <head>
             <link rel="stylesheet" type="text/css" href="/style.css" />
             <title>SG Prayer Spaces</title>
+            <script type="text/javascript" src="/tbd.js" />
         </head>
         <body>
             <Header/>

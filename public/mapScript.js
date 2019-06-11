@@ -110,7 +110,6 @@ function loadMosqueMarkers() {
         '<div id="bodyContent">'+
         '<p>'+loc.address+'</p>'+
         '<p><a href="/spaces/'+loc.id+'">View '+loc.type+' details</a></p>'+
-        '<p>Get directions</p>'+
         '</div>'+
         '</div>';
         let infowindow = new google.maps.InfoWindow({

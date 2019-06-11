@@ -129,7 +129,7 @@ a {
 }
 
 h1 {
-	color: #800040;
+	color: #331200;
 	margin-top: 0;
 }
 
@@ -142,7 +142,8 @@ th {
 	padding: 12px;
 	font-size: 20px;
 	border: solid 1px black;
-	background-color: #ffc994;
+	background-color: #003333;
+	color: #F6FFFF;
 }
 
 td {
@@ -163,6 +164,7 @@ td {
 
 .infoBar{
 	width: 400px;
+	padding: 20px;
 	/*border: solid 1px blue;*/
 }
 
@@ -206,11 +208,13 @@ textarea {
 */
 
 .formButtons {
-	display: inline;
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
 }
 
 .submitButton {
-	display: block;
+	display: inline;
 }
 
 .editButton {
@@ -219,18 +223,32 @@ textarea {
 
 .backButtons {
 	display: inline;
+	padding: 10px;
+	font-size: 14px;
+	margin-right: 5px;
+	background-color: #003333;
+	color: #FFFFFF;
+	border: none;
 }
 
 .spaceNavButtons {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	margin-top: 20px;
+}
+
+.spaceEditButtons {
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+	margin-top: 10px;
 }
 
 .detailButton {
 	padding: 10px;
 	font-size: 14px;
-	margin-right: 5px;
+	/*margin-right: 5px;*/
 	background-color: #007bf6;
 	color: #FFFFFF;
 	border: none;
@@ -243,4 +261,33 @@ textarea {
 	background-color: #00e271;
 	color: #FFFFFF;
 	border: none;
+}
+
+.inputContainer {
+	width: 350px;
+	/*border: 1px solid red;*/
+	margin-bottom: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.inputContainer p {
+	display: inline;
+}
+
+.inputContainer textarea{
+	min-height: 50px;
+}
+
+.editForm {
+	margin-top: 30px;
+}
+
+.deleteForm {
+	/*border: solid 1px red;*/
+}
+
+.deleteForm textarea {
+	margin: 10px;
 }
