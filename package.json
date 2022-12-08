@@ -20,7 +20,7 @@
   "homepage": "https://github.com/nicoraven/muslim-prayer-spaces#readme",
   "dependencies": {
     "cookie-parser": "^1.4.4",
-    "express": "^4.16.4",
+    "express": "^4.18.2",
     "express-react-views": "^0.11.0",
     "js-sha256": "^0.9.0",
     "method-override": "^3.0.0",
